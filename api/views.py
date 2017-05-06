@@ -37,9 +37,9 @@ def home(request):
 	
 	# OAUTH_TOKEN_URL = 'https://accounts.spotify.com/api/token'
 
-	client_id = '33704938095-g3uhslf1enbgg84hb40k0924mgea5arm.apps.googleusercontent.com'
+	client_id = '486845874057-5l1khgmsrtp69eqtcp5r9hooml4mgak7.apps.googleusercontent.com'
 
-	client_secret = 'nOylsHNF81OOE5MwdUf2zhLv'
+	client_secret = 'Kcrlf5yDh4niKgJNublv3Gpu'
 
 	redirect_uri = 'https://musynco.herokuapp.com/home'
 
