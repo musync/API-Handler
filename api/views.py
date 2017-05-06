@@ -296,16 +296,16 @@ def playlist1(request):
 	z = Playlist.objects.values('SongName').annotate(frequency = Count('SongName')).order_by('frequency')
 	print z
 	a = []
+
 	
 	for i in z:
-		a.append(str(i.SongName))
-
-	print a 
-	q = {'songs' : a}
-	print q 
+		o = Song.objects.get_or_create(pk = str(i['SongName']))
+		c = {o.SongName: str(i['SongName'])}
+		a.append(c)
 
 
-	q1 = json.dumps(q, indent = 4)
+
+	q1 = json.dumps(a, indent = 4)
 
 
 
