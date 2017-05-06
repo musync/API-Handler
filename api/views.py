@@ -189,9 +189,11 @@ def songs_saver(request):
 			o.SongUrl = "https://www.youtube.com/watch?v=" +  v_id
 			o.save()
 
-			# q = o.playlist_set.get_or_create(Email =u)[0]
-			# q.pk = o.pk
-			# q.save()
+			q = o.playlist_set.get_or_create(Email =u)[0]
+			q.SongName = o
+			f = u.djsessions_set.get_or_create(SessionId = '0')[0]
+			q.SessionId = f
+			q.save()
 		
 
 
