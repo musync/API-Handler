@@ -285,7 +285,7 @@ def new_song(request):
 	return HttpResponse('song added')
 
 
-def playlist(request):
+def playlist1(request):
 
 	u  = user.objects.get(Email  = 'kohlivishrut@gmail.com')
 	f = u.djsessions_set.get_or_create(Email = u)
