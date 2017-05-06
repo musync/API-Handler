@@ -37,6 +37,7 @@ import json
 import requests
 from django.http import HttpResponse
 from api.models import user , DjSessions , Song , Playlist
+from django.core import serializers
 
 
 def home(request):
@@ -293,6 +294,7 @@ def playlist1(request):
 
 	z = Playlist.objects.all().filter(SessionId = '0').annotate(frequency = Count('SongName')).order_by('frequency')
 	a = []
+	z = serializers.serialize('json', z)
 	for i in z:
 		a.append(i.SongName)
 
