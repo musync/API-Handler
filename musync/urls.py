@@ -14,5 +14,6 @@ urlpatterns = patterns('',
     url(r'^song_d$','api.views.song_d',name='admainSongPlaylist'),
     url(r'^song2_d$','api.views.song2_d',name='00minSongPlaylist'),
     url(r'^hostedsession$','api.views.hostedsession',name='0a0ssminSongPlaylist'),
+    url(r'^new_song$','api.views.new_song',name='00minSongPlaylist'),
 
 )
