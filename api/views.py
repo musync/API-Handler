@@ -39,6 +39,7 @@ from django.http import HttpResponse
 from api.models import user , DjSessions , Song , Playlist
 from django.core import serializers
 from django.db.models import Count
+import pafy 
 
 
 def home(request):
@@ -311,6 +312,24 @@ def playlist1(request):
 
 
 	return HttpResponse(q1 ,content_type = "application/json")
+
+
+
+
+	def stream(request):
+		SongName = request.GET.get('SongName')
+		o = Song.objects.get(SongName  = SongName)
+		v = pafy.new(o.SongUrl)
+		link  = v.getbestaudio()
+		url = link.url_https
+
+		q = {'url' :  url}
+
+		q1 = json.dumps(a, indent = 4)
+
+		return HttpResponse(q1 ,content_type = "application/json")
+
+
 
 
 
