@@ -162,9 +162,10 @@ def songs_saver(request):
 		########################### EITHER YOU WILL HAVE YOUR POST REQUEST DATA IN REQUEST.BODY AND REQUEST.POST FROM WHERE YOU CAN PARSE it #######
 		# print request.body
 		x = json.loads(request.body)
-		print request.body
+		print x
+		print len(x)
 
-		print json.loads(request.body)
+		# print json.loads(request.body)
 		u  = user.objects.get_or_create(Email  = 'kohlivishrut@gmail.com')[0]
 		for i in len(x):
 
@@ -193,7 +194,7 @@ def songs_saver(request):
 			
 	except Exception as e:
 		print e
-		return HttpResponse("some error")
+		return HttpResponse(e)
 	return HttpResponse("Post Succcessful")
 
 
