@@ -104,4 +104,5 @@ def home(request):
 	responseobj = json.dumps(r, indent = 4)
 
 
-	return HttpResponse(responseobj,content_type = "application/json")
+	# return HttpResponse(responseobj,content_type = "application/json")
+	return HttpResponse(r)
