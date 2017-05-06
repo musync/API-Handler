@@ -293,7 +293,7 @@ def playlist1(request):
 	f = u.djsessions_set.get(Email = u)
 	print f.SessionId
 
-	z = Playlist.objects.values('SessionId').annotate(frequency = Count('SongName')).order_by('frequency')
+	z = Playlist.objects.values('SongName').annotate(frequency = Count('SongName')).order_by('frequency')
 	print z
 	a = []
 	
