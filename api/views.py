@@ -53,7 +53,11 @@ def home(request):
 	t = json.loads(r.text)
 	global z 
 	z = t['access_token']
-	# det  = user.objects.get_or_create(access_token  = z)[0]
+	det  = user.objects.get_or_create(YoutubeToken  = z)[0]
+	det.Name = 'Vishrut'
+	det.Email = 'kohlivishrut@gmail.com'
+	det.save()
+
 	
 	# # aheaders = {'Host' : 'gdata.youtube.com' , 'Content-Type' : 'application/json' , 'Content-Length': 'CONTENT_LENGTH'  ,"Authorization": "Bearer " + z , 'GData-Version': '2' , 'X-GData-Key': 'key=DEVELOPER_KEY' } 
 	# data  = {
