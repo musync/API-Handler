@@ -33,6 +33,6 @@ class Song(models.Model):
        
 class Playlist(models.Model):
     SongName = models.ForeignKey(Song, on_delete=models.CASCADE)
-    SessionId = models.ForeignKey(DjSessions, on_delete=models.CASCADE  , default = '0')
+    SessionId = models.ForeignKey(DjSessions , default = '0')
     Email = models.ForeignKey(user, on_delete=models.CASCADE)
     
