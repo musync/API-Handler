@@ -186,7 +186,7 @@ def songs_saver(request):
 			print songs
 			v_id  = songs['items'][0]['id']['videoId']
 			print v_id
-			o.SongUrl = v_id
+			o.SongUrl = "https://www.youtube.com/watch?v=" +  v_id
 			o.save()
 
 			q = o.playlist_set.get_or_create(Email =u.pk)
