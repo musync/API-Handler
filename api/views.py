@@ -289,7 +289,7 @@ def playlist1(request):
 
 	u  = user.objects.get(Email  = 'kohlivishrut@gmail.com')
 	f = u.djsessions_set.get_or_create(Email = u)
-	z = playlist.objects.all().filter(SessionName = f).annotate(frequency = count('SongName')).orderby('frequency')
+	z = Playlist.objects.all().filter(SessionName = f).annotate(frequency = count('SongName')).orderby('frequency')
 	print z
 
 	return HttpResponse(z)
