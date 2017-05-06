@@ -38,6 +38,7 @@ import requests
 from django.http import HttpResponse
 from api.models import user , DjSessions , Song , Playlist
 from django.core import serializers
+from django.db.models import Count
 
 
 def home(request):
