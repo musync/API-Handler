@@ -153,7 +153,7 @@ def hostedsession(request):
 
 
 
-@csrf_exempts
+@csrf_exempt
 def songs_saver(request):
 	# Create your views here.
 
