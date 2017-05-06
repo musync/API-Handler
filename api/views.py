@@ -152,6 +152,8 @@ def hostedsession(request):
 	return HttpResponse(Name)
 
 
+
+@csrf_exempts
 def songs_saver(request):
 	# Create your views here.
 
@@ -164,22 +166,25 @@ def songs_saver(request):
 
 		print json.loads(request.body)
 		u  = user.objects.get_or_create(Email  = 'kohlivishrut@gmail.com')[0]
-		a = u.djsessions_set.get_or_create(SessionName = x['Name'])
-		f = djsessions.objects.get(hostedsession = x['hostedsession'])
-		k = user.objects.get(hostname = x['hostname'])
-		for i in range(10):
-			x['song' + str(i)]
-			# print i 
-			
+		for i in len(x):
 
-			u = f.hostsong_set.get_or_create(song = i)[0]
-			u.song = i
-			u.counter = str(int(u.counter) + 1)
-			u.save()
-		aa = djsessions.objects.all().filter(hostedsession=x['hostedsession'])
-		songSorted = hostsong.objects.all().filter(hostedsession=aa).order_by('counter')
-		finalList = songSorted.reverse()
+			o = Song.objects.get_or_create(SongName  =  x['song' + str(i)])[0]
+			song = x['song' + str(i)].replace(" ", "+")
 
+			headers = {'Content-type': 'application/json', 'Accept': 'text/plain' , "Authorization": "Bearer " + u.YoutubeToken}
+
+
+
+
+			s = requests.get('https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=' + song + '&type=video&videoDefinition=high' , headers = headers )
+			songs  = json.loads(s.text)
+			v_id  = songs['items'][0]['id']['videoId']
+			o.SongUrl = v_id
+			o.save()
+
+			q = o.playlist_set.get_or_create(SongName = o.pk)
+			q.Email = u.pk
+			q.save()
 		
 
 
@@ -204,7 +209,7 @@ def song(request):
 	# aa = djsessions.objects.all().filter(hostedsession=foo)
 	# songSorted = hostsong.objects.all().filter(hostedsession=aa).order_by('counter').reverse
 	# data2  = {'hostname': 'Vishrut Kohli' , 'hostedsession' : 'vishrut1' , 'songs'  : [ 'Avicii - Did A Bad Bad Thing (Original Mix)' , 'Avicii - Dukkha (Original Mix)' , 'Avicii - Youre Gonna Love Again (Extended Mix)' , 'Avicii Ft. Project 46 & Daphne - Crime' , 'Avicii Ft. Project 46 & Daphne - Crime' , 'Avicii Ft. Taio Cruz - The Party Next Door (Vocal Mix)', 'Avicii ft Negin - Three Million (Your Love Is So Amazing)', ' Avicii - Fuck The Music', 'Avicii - Hello Miami', 'Avicii - ID (Original Mix)']}
-	data3 = {'hostname': 'Vishrut Kohli' , 'hostedsession' : 'VishrutsBash' , 'songs'  : [  'Avicii Ft. Project 46 & Daphne - Crime' , 'Avicii Ft. Taio Cruz ', 'AviciiThree Million (Your Love Is So Amazing)',  'shape of you' , 'dont let me down' , 'one time' , 'sugar' , 'cold water' , 'closer']}
+	data3 = {'Email': 'kohlivishrut@gmail.com'   'songs'  : [  'Avicii Ft. Project 46 & Daphne - Crime' , 'Avicii Ft. Taio Cruz ', 'AviciiThree Million (Your Love Is So Amazing)',  'shape of you' , 'dont let me down' , 'one time' , 'sugar' , 'cold water' , 'closer']}
 
 	w = requests.post('https://musync.herokuapp.com/song_saver' ,  data=json.dumps(data3))
 	return HttpResponse(w.text)
@@ -214,7 +219,7 @@ def song2(request):
 	# aa = djsessions.objects.all().filter(hostedsession=foo)
 	# songSorted = hostsong.objects.all().filter(hostedsession=aa).order_by('counter').reverse
 	# data2  = {'hostname': 'Vishrut Kohli' , 'hostedsession' : 'VishrutsBash' , 'songs'  : [  'Avicii Ft. Project 46 & Daphne - Crime' , 'Avicii Ft. Taio Cruz ', 'AviciiThree Million (Your Love Is So Amazing)',  'shape of you' , 'dont let me down' , 'one time' , 'sugar' , 'cold water' , 'closer']}
-	data3 = {'hostname': 'Vishrut Kohli' , 'hostedsession' : 'VishrutsBash' , 'songs'  : [ 'shape of you' , 'dont let me down' , 'one time' , 'sugar' , 'cold water' , 'closer']}
+	data3 = { 'Email': 'kohlivishrut@gmail.com'  , 'song1' : 'shape of you' , 'song2' :  'dont let me down' , 'song3':'one time' , 'song4':'sugar' , 'song5':'cold water' , 'song6':'closer'}
 
 	w = requests.post('https://musync.herokuapp.com/song_saver' ,  data=json.dumps(data3))
 	return HttpResponse(w.text)
@@ -233,7 +238,7 @@ def song2_d(request):
 	# aa = djsessions.objects.all().filter(hostedsession=foo)
 	# songSorted = hostsong.objects.all().filter(hostedsession=aa).order_by('counter').reverse
 	# data2  = {'hostname': 'Vishrut Kohli' , 'hostedsession' : 'VishrutsBash' , 'songs'  : [  'Avicii Ft. Project 46 & Daphne - Crime' , 'Avicii Ft. Taio Cruz ', 'AviciiThree Million (Your Love Is So Amazing)',  'shape of you' , 'dont let me down' , 'one time' , 'sugar' , 'cold water' , 'closer']}
-	data3 = {'hostname': 'Vishrut Kohli' , 'hostedsession' : 'VishrutsBash' , 'songs'  : [ 'shape of you' , 'dont let me down' , 'one time' , 'sugar' , 'cold water' , 'closer']}
+	data3 = { 'Email': 'kohlivishrut@gmail.com'  , 'song1' : 'shape of you' , 'song2' :  'dont let me down' , 'song3':'one time' , 'song4':'sugar' , 'song5':'cold water' , 'song6':'closer'}
 
 	w = requests.post('https://musync.herokuapp.com/songs_deleter' ,  data=json.dumps(data3))
 	return HttpResponse(w.text)
