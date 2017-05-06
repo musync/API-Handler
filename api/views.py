@@ -189,8 +189,8 @@ def songs_saver(request):
 			o.SongUrl = v_id
 			o.save()
 
-			q = o.playlist_set.get_or_create(SongName = o.pk)
-			q.Email = u.pk
+			q = o.playlist_set.get_or_create(Email =u.pk)
+			q.SongName = o.pk
 			q.save()
 		
 
