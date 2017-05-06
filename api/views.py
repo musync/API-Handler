@@ -251,4 +251,28 @@ def song2_d(request):
 	return HttpResponse(w.text)
 
 
+def new_song(request):
+	Name = request.GET.get('Name')
+	u  = user.objects.get_or_create(Email  = 'kohlivishrut@gmail.com')[0]
 
+	o = Song.objects.get_or_create(SongName  =  Name)[0]
+			song = Name.replace(" ", "+")
+			print song 
+
+			headers = {'Content-type': 'application/json', 'Accept': 'text/plain' , "Authorization": "Bearer " + u.YoutubeToken}
+
+
+			s = requests.get('https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=' + song + '&type=video&videoDefinition=high' , headers = headers )
+			print s
+			songs  = json.loads(s.text)
+			print songs
+			v_id  = songs['items'][0]['id']['videoId']
+			print v_id
+			o.SongUrl = "https://www.youtube.com/watch?v=" +  v_id
+			o.save()
+
+			q = o.playlist_set.get_or_create(Email =u)[0]
+			q.SongName = o
+			q.save()
+
+			return HttpResponse('song added')
