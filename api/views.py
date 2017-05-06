@@ -141,7 +141,7 @@ def hostedsession(request):
 		########################### EITHER YOU WILL HAVE YOUR POST REQUEST DATA IN REQUEST.BODY AND REQUEST.POST FROM WHERE YOU CAN PARSE it #######
 	Name = request.GET.get('Name')
 	u  = user.objects.get_or_create(Email  = 'kohlivishrut@gmail.com')[0]
-	a = u.djsessions_set.get_or_create(SessionName = Name)
+	a = u.djsessions_set.get_or_create(SessionName = Name)[0]
 	a.SessionId = sessionIdCreator(3)
 	a.save()
 
