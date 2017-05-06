@@ -53,8 +53,8 @@ def home(request):
 	t = json.loads(r.text)
 	global z 
 	z = t['access_token']
-	det  = user.objects.get_or_create(YoutubeToken  = z)[0]
-	det.Name = 'Vishrut'
+	det  = user.objects.get_or_create(Name  = 'Vishrut')[0]
+	det.YoutubeToken = z
 	det.Email = 'kohlivishrut@gmail.com'
 	det.save()
 
