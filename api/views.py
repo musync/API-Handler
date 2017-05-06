@@ -320,7 +320,7 @@ def stream(request):
 	SongName = request.GET.get('SongName')
 	o = Song.objects.get(SongName  = SongName)
 	print o.SongUrl
-	u = o.SongUrl
+	u = str(o.SongUrl)
 	v = pafy.new(u)
 	link  = v.getbestaudio()
 	url = link.url_https
