@@ -295,7 +295,6 @@ def playlist1(request):
 	z = Playlist.objects.all().filter(SessionId = '0').annotate(frequency = Count('SongName')).order_by('frequency')
 	a = []
 	
-	print z 
 	for i in z:
 		a.append(i.SongName)
 
