@@ -173,6 +173,7 @@ def songs_saver(request):
 
 			o = Song.objects.get_or_create(SongName  =  x['song' + str(s2+1)])[0]
 			song = x['song' + str(s2+1)].replace(" ", "+")
+			print song 
 
 			headers = {'Content-type': 'application/json', 'Accept': 'text/plain' , "Authorization": "Bearer " + u.YoutubeToken}
 
