@@ -300,7 +300,7 @@ def playlist1(request):
 	
 	for i in z:
 		o = Song.objects.get(pk = str(i['SongName']))
-		c = {o.SongName: str(i['SongName'])}
+		c = {o.SongName: str(i['frequency'])}
 		a.append(c)
 
 
