@@ -294,13 +294,14 @@ def playlist1(request):
 
 	z = Playlist.objects.all().filter(SessionId = '0').annotate(frequency = Count('SongName')).order_by('frequency')
 	a = []
-	z = serializers.serialize('json', z)
+	
+	print z 
 	for i in z:
 		a.append(i.SongName)
 
 
 
-
+	a = serializers.serialize('json', a)
 	q = {'songs' : a}
 	print q 
 
