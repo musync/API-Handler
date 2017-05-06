@@ -300,7 +300,6 @@ def playlist1(request):
 
 
 	q = {'songs' : a}
-	a = json.loads(a)
 	print q 
 
 
