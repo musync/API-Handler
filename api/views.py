@@ -299,7 +299,7 @@ def playlist1(request):
 
 	
 	for i in z:
-		o = Song.objects.get_or_create(pk = str(i['SongName']))
+		o = Song.objects.get(pk = str(i['SongName']))
 		c = {o.SongName: str(i['SongName'])}
 		a.append(c)
 
