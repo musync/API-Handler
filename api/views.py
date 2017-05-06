@@ -296,11 +296,8 @@ def playlist1(request):
 	a = []
 	
 	for i in z:
-		a.append(i.SongName)
+		a.append(str(i.SongName))
 
-
-
-	a = serializers.serialize('json', a)
 	print a 
 	q = {'songs' : a}
 	print q 
