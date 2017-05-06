@@ -221,7 +221,7 @@ def song2(request):
 	# data2  = {'hostname': 'Vishrut Kohli' , 'hostedsession' : 'VishrutsBash' , 'songs'  : [  'Avicii Ft. Project 46 & Daphne - Crime' , 'Avicii Ft. Taio Cruz ', 'AviciiThree Million (Your Love Is So Amazing)',  'shape of you' , 'dont let me down' , 'one time' , 'sugar' , 'cold water' , 'closer']}
 	data3 = { 'Email': 'kohlivishrut@gmail.com'  , 'song1' : 'shape of you' , 'song2' :  'dont let me down' , 'song3':'one time' , 'song4':'sugar' , 'song5':'cold water' , 'song6':'closer'}
 
-	w = requests.post('https://musync.herokuapp.com/song_saver' ,  data=json.dumps(data3))
+	w = requests.post('https://musynco.herokuapp.com/song_saver' ,  data=json.dumps(data3))
 	return HttpResponse(w.text)
 
 def song_d(request):
