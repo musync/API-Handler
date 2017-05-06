@@ -319,6 +319,7 @@ def playlist1(request):
 def stream(request):
 	SongName = request.GET.get('SongName')
 	o = Song.objects.get(SongName  = SongName)
+	print o.SongUrl
 	v = pafy.new(o.SongUrl)
 	link  = v.getbestaudio()
 	url = link.url_https
