@@ -101,8 +101,10 @@ def home(request):
 	# # w = requests.post('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet' , headers = headers , data=json.dumps(data2))
 
 	# name = {'name' : det.hostname}
-	responseobj = json.dumps(r, indent = 4)
+	# responseobj = json.dumps(r, indent = 4)
 
 
 	# return HttpResponse(responseobj,content_type = "application/json")
 	return HttpResponse(r)
+
+	# https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=486845874057-5l1khgmsrtp69eqtcp5r9hooml4mgak7.apps.googleusercontent.com&redirect_uri=https://musynco.herokuapp.com/home&scope=https://www.googleapis.com/auth/youtube
