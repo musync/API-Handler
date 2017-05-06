@@ -293,8 +293,10 @@ def playlist1(request):
 
 	z = Playlist.objects.all().filter(SessionId = '0').annotate(frequency = Count('SongName')).order_by('frequency')
 	print z
+	print
 
-	return HttpResponse(z)
+
+	return HttpResponse(z[0].SongName)
 
 
 
