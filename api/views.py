@@ -303,7 +303,6 @@ def playlist1(request):
 		c = {'name' :o.SongName ,'index' : str(i['frequency'])}
 		a.append(c)
 
-	sorted(a.values())	
 
 
 
