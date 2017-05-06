@@ -138,8 +138,6 @@ def sessionIdCreator(n):
 
 def hostedsession(request):
 	
-
-	try:
 		########################### EITHER YOU WILL HAVE YOUR POST REQUEST DATA IN REQUEST.BODY AND REQUEST.POST FROM WHERE YOU CAN PARSE it #######
 		Name = request.GET.get('Name')
 		u  = user.objects.get_or_create(Email  = 'kohlivishrut@gmail.com')[0]
@@ -149,10 +147,7 @@ def hostedsession(request):
 
 	
 
-			
-	except Exception as e:
-		print e
-		return HttpResponse("some error")
+		
 	return HttpResponse("Post Succcessful")
 
 
