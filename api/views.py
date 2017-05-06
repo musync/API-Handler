@@ -316,18 +316,18 @@ def playlist1(request):
 
 
 
-	def stream(request):
-		SongName = request.GET.get('SongName')
-		o = Song.objects.get(SongName  = SongName)
-		v = pafy.new(o.SongUrl)
-		link  = v.getbestaudio()
-		url = link.url_https
+def stream(request):
+	SongName = request.GET.get('SongName')
+	o = Song.objects.get(SongName  = SongName)
+	v = pafy.new(o.SongUrl)
+	link  = v.getbestaudio()
+	url = link.url_https
 
-		q = {'url' :  url}
+	q = {'url' :  url}
 
-		q1 = json.dumps(a, indent = 4)
+	q1 = json.dumps(a, indent = 4)
 
-		return HttpResponse(q1 ,content_type = "application/json")
+	return HttpResponse(q1 ,content_type = "application/json")
 
 
 
