@@ -288,7 +288,7 @@ def new_song(request):
 def playlist1(request):
 
 	u  = user.objects.get(Email  = 'kohlivishrut@gmail.com')
-	f = u.djsessions_set.get_or_create(Email = u)
+	f = u.djsessions_set.get(Email = u)
 	z = Playlist.objects.all().filter(SessionName = f.SessionName).annotate(frequency = count('SongName')).orderby('frequency')
 	print z
 
