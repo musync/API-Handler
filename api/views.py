@@ -171,8 +171,8 @@ def songs_saver(request):
 		for s2 in range((len(x) - 1)):
 			print "we  entered loop niggga"
 
-			o = Song.objects.get_or_create(SongName  =  x['song' + str(s2)])[0]
-			song = x['song' + str(i)].replace(" ", "+")
+			o = Song.objects.get_or_create(SongName  =  x['song' + str(s2+1)])[0]
+			song = x['song' + str(s2+1)].replace(" ", "+")
 
 			headers = {'Content-type': 'application/json', 'Accept': 'text/plain' , "Authorization": "Bearer " + u.YoutubeToken}
 
