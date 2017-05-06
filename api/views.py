@@ -292,11 +292,21 @@ def playlist1(request):
 	print f.SessionId
 
 	z = Playlist.objects.all().filter(SessionId = '0').annotate(frequency = Count('SongName')).order_by('frequency')
-	
+	a = []
+	for i in z:
+		a.append(i.SongName)
 
 
-	return HttpResponse(z[0].SongName)
 
+	q = {'songs' : a}
+	print q 
+
+
+	q1 = json.dumps(q, indent = 4)
+
+
+
+    return HttpResponse(q1 ,content_type = "application/json")
 
 
 
