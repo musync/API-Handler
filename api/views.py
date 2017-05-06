@@ -190,7 +190,7 @@ def songs_saver(request):
 			o.save()
 
 			q = o.playlist_set.get_or_create(Email =u)[0]
-			q.SongName = o
+			q.pk = o.pk
 			q.save()
 		
 
