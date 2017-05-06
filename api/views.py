@@ -327,7 +327,7 @@ def stream(request):
 
 	q = {'url' :  url}
 
-	q1 = json.dumps(a, indent = 4)
+	q1 = json.dumps(q, indent = 4)
 
 	return HttpResponse(q1 ,content_type = "application/json")
 
