@@ -167,7 +167,8 @@ def songs_saver(request):
 
 		# print json.loads(request.body)
 		u  = user.objects.get_or_create(Email  = 'kohlivishrut@gmail.com')[0]
-		for i in len(x):
+		for i in (len(x) - 1):
+			print "we  entered loop niggga"
 
 			o = Song.objects.get_or_create(SongName  =  x['song' + str(i)])[0]
 			song = x['song' + str(i)].replace(" ", "+")
