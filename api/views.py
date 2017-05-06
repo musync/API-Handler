@@ -166,7 +166,7 @@ def songs_saver(request):
 		print len(x)
 
 		# print json.loads(request.body)
-		u  = user.objects.get_or_create(Email  = x['EmailS'])[0]
+		u  = user.objects.get_or_create(Email  = x['Email'])[0]
 		print "we  entered loop"
 		for s2 in range((len(x) - 1)):
 			print "we  entered loop niggga"
