@@ -181,8 +181,11 @@ def songs_saver(request):
 
 
 			s = requests.get('https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=' + song + '&type=video&videoDefinition=high' , headers = headers )
+			print s
 			songs  = json.loads(s.text)
+			print songs
 			v_id  = songs['items'][0]['id']['videoId']
+			print v_id
 			o.SongUrl = v_id
 			o.save()
 
