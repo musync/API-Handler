@@ -301,6 +301,7 @@ def playlist1(request):
 
 
 	a = serializers.serialize('json', a)
+	print a 
 	q = {'songs' : a}
 	print q 
 
