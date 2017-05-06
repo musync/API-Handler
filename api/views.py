@@ -143,6 +143,7 @@ def hostedsession(request):
 	u  = user.objects.get_or_create(Email  = 'kohlivishrut@gmail.com')[0]
 	a = u.djsessions_set.get_or_create(SessionName = Name)[0]
 	a.SessionId = sessionIdCreator(3)
+	a.NetworkName = Name
 	a.save()
 
 	
