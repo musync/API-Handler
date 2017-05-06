@@ -148,7 +148,7 @@ def hostedsession(request):
 	
 
 		
-	return HttpResponse("Post Succcessful")
+	return HttpResponse(Name)
 
 
 def songs_saver(request):
