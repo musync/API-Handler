@@ -146,6 +146,9 @@ def sessionIdCreator(n):
 
 
 
+
+
+
 def hostedsession(request):
 	
 		########################### EITHER YOU WILL HAVE YOUR POST REQUEST DATA IN REQUEST.BODY AND REQUEST.POST FROM WHERE YOU CAN PARSE it #######
@@ -332,10 +335,6 @@ def stream(request):
 
 
 
-
-
-
-<<<<<<< HEAD
 def frontend(request):
 	u  = user.objects.get(Email  = '123@123.com')
 	f = u.djsessions_set.get(Email = u)
@@ -372,16 +371,4 @@ def frontend(request):
 
 
 
-
-
-
-
-
-
-
-
-
-
-=======
->>>>>>> 5c68c3f37af14069832cdc478bee8c5d4b7a45dd
 
