@@ -336,3 +336,52 @@ def stream(request):
 
 
 
+
+
+def frontend(request):
+	u  = user.objects.get(Email  = '123@123.com')
+	f = u.djsessions_set.get(Email = u)
+	print f.SessionId
+
+	z = Playlist.objects.values('SongName').annotate(frequency = Count('SongName')).order_by('-frequency')
+	print z
+	a = []
+	
+	for i in z:
+		o = Song.objects.get(pk = str(i['SongName']))
+		print o.SongUrl
+		u = str(o.SongUrl)
+		v = pafy.new(u)
+		link  = v.getbestaudio()
+		url = link.url_https
+
+		c = {'name' :o.SongName ,'index' : str(i['frequency']) , 'url':url}
+		a.append(c)
+	print a
+
+	context_dict = {}
+	context_dict['a'] = a
+	return render(request,'api/nava-radio-home.html',context_dict)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
