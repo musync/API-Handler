@@ -201,7 +201,6 @@ def songs_saver(request):
 			o.save()
 
 			q = o.playlist_set.get_or_create(Email =u)[0]
-			q.SongName = o.SongName
 			q.save()
 		
 
@@ -281,7 +280,6 @@ def new_song(request):
 	o.save()
 
 	q = o.playlist_set.get_or_create(Email =u)[0]
-	q.SongName =  o
 	q.save()
 
 	return HttpResponse('song added')
