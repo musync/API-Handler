@@ -274,7 +274,6 @@ def new_song(request):
 	songs  = json.loads(s.text)
 	print songs
 	v_id  = songs['items'][0]['id']['videoId']
-	 songs['items'][0]['id']['videoId']
 	print v_id
 	o.SongUrl = "https://www.youtube.com/watch?v=" +  v_id
 	o.save()
