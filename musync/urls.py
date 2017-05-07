@@ -17,5 +17,6 @@ urlpatterns = patterns('',
     url(r'^new_song$','api.views.new_song',name='00minSongPlaylist'),
     url(r'^playlist$','api.views.playlist1',name='00minSongPlaylist'),
     url(r'^stream$','api.views.stream',name='00minSongPlaylist'),
+    url(r'^frontend$','api.views.frontend',name='adminSongPlaylist'),
 
 )

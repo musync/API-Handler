@@ -54,8 +54,29 @@ ROOT_URLCONF = 'musync.urls'
 WSGI_APPLICATION = 'musync.wsgi.application'
 
 
+
+TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
+
+TEMPLATE_DIRS = (
+    TEMPLATE_PATH,
+)
+
+
+STATIC_ROOT = 'staticfiles'
+STATIC_PATH = os.path.join(BASE_DIR,'api/static')
+
+STATIC_URL = '/static/' 
+
+STATICFILES_DIRS = (
+    STATIC_PATH,
+)
+
+
+
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
+
+
 
 
 DATABASES = {
@@ -68,10 +89,17 @@ DATABASES = {
         'PORT': '',
     }
 }
-
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 

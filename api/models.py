@@ -36,4 +36,3 @@ class Playlist(models.Model):
     SessionId = models.CharField(max_length = 250 , default = '0')
     Email = models.ForeignKey(user, on_delete=models.CASCADE)
 
-   
