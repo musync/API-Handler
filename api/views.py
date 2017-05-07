@@ -244,7 +244,7 @@ def song_d(request):
 	# aa = djsessions.objects.all().filter(hostedsession=foo)
 	# songSorted = hostsong.objects.all().filter(hostedsession=aa).order_by('counter').reverse
 	# data2  = {'hostname': 'Vishrut Kohli' , 'hostedsession' : 'vishrut1' , 'songs'  : [ 'Avicii - Did A Bad Bad Thing (Original Mix)' , 'Avicii - Dukkha (Original Mix)' , 'Avicii - Youre Gonna Love Again (Extended Mix)' , 'Avicii Ft. Project 46 & Daphne - Crime' , 'Avicii Ft. Project 46 & Daphne - Crime' , 'Avicii Ft. Taio Cruz - The Party Next Door (Vocal Mix)', 'Avicii ft Negin - Three Million (Your Love Is So Amazing)', ' Avicii - Fuck The Music', 'Avicii - Hello Miami', 'Avicii - ID (Original Mix)']}
-data3 = { 'Email': 'tejasav1997@gmail.com'  , 'song1' : 'shape of you' , 'song2' :  'dont let me down' , 'song3':'one time' , 'song4':'sugar' , 'song5':'cold water' , 'song6':'closer'}
+	data3 = { 'Email': 'tejasav1997@gmail.com'  , 'song1' : 'shape of you' , 'song2' :  'dont let me down' , 'song3':'one time' , 'song4':'sugar' , 'song5':'cold water' , 'song6':'closer'}
 	w = requests.post('https://musynco.herokuapp.com/songs_deleter' ,  data=json.dumps(data3))
 	return HttpResponse(w.text)
 
@@ -253,7 +253,7 @@ def song2_d(request):
 	# aa = djsessions.objects.all().filter(hostedsession=foo)
 	# songSorted = hostsong.objects.all().filter(hostedsession=aa).order_by('counter').reverse
 	# data2  = {'hostname': 'Vishrut Kohli' , 'hostedsession' : 'VishrutsBash' , 'songs'  : [  'Avicii Ft. Project 46 & Daphne - Crime' , 'Avicii Ft. Taio Cruz ', 'AviciiThree Million (Your Love Is So Amazing)',  'shape of you' , 'dont let me down' , 'one time' , 'sugar' , 'cold water' , 'closer']}
-data3 = { 'Email': 'kohlivishrut@gmail.com'  , 'song1' : 'shape of you' , 'song2' :  'dont let me down' , 'song3':'one time' , 'song4':'sugar' , 'song5':'cold water' , 'song6':'closer'}
+	data3 = { 'Email': 'kohlivishrut@gmail.com'  , 'song1' : 'shape of you' , 'song2' :  'dont let me down' , 'song3':'one time' , 'song4':'sugar' , 'song5':'cold water' , 'song6':'closer'}
 	w = requests.post('https://musynco.herokuapp.com/songs_deleter' ,  data=json.dumps(data3))
 	return HttpResponse(w.text)
 
