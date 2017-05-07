@@ -197,10 +197,11 @@ def songs_saver(request):
 			v_id  = songs['items'][0]['id']['videoId']
 			print v_id
 			o.SongUrl = "https://www.youtube.com/watch?v=" +  v_id
+			o.SongName = str(songs['items'][0]['snippet']['title'])
 			o.save()
 
 			q = o.playlist_set.get_or_create(Email =u)[0]
-			q.SongName = str(songs['items'][0]['snippet']['title'])
+			q.SongName = o.SongName
 			q.save()
 		
 
@@ -276,10 +277,11 @@ def new_song(request):
 	v_id  = songs['items'][0]['id']['videoId']
 	print v_id
 	o.SongUrl = "https://www.youtube.com/watch?v=" +  v_id
+	o.SongName = songs['items'][0]['snippet']['title']
 	o.save()
 
 	q = o.playlist_set.get_or_create(Email =u)[0]
-	q.SongName = songs['items'][0]['snippet']['title']
+	q.SongName =  o.SongName
 	q.save()
 
 	return HttpResponse('song added')

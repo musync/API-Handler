@@ -23,7 +23,7 @@ class DjSessions(models.Model):
 
 
 class Song(models.Model):
-    SongName = models.CharField(max_length = 450 , default = 'NULL') 
+    SongName = models.CharField(max_length = 250 , default = 'NULL') 
     SongUrl = models.CharField(max_length = 250 , default = 'NULL')
 
     def __str__(self):
@@ -36,3 +36,4 @@ class Playlist(models.Model):
     SessionId = models.CharField(max_length = 250 , default = '0')
     Email = models.ForeignKey(user, on_delete=models.CASCADE)
 
+   
